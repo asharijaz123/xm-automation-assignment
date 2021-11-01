@@ -1,0 +1,12 @@
+#
+# Project specific excludes
+#
+# Maven
+target/
+
+# IntelliJ project files
+.DS_Store
+*.iml
+.idea/
+*.log
+out/
