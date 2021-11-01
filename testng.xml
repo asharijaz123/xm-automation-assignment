@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- author MUHAMMAD ASHAR -->
+<suite name="Automated_Tests" verbose="10" configfailurepolicy="continue">
+
+    <test name="TEST_ValidateAPI">
+        <classes>
+            <class name="tests.TEST_ValidateAPI"/>
+        </classes>
+    </test>
+    <test name="TEST_VALIDATE_UI">
+        <classes>
+            <class name="tests.TEST_ValidateUI"/>
+        </classes>
+    </test>
+</suite>
