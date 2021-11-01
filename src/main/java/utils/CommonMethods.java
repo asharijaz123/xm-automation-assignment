@@ -16,8 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @author MUHAMMAD ASHAR
  * Dated: 27/10/2021
  */
-public class CommonMethods extends SeleniumBase
-{
+public class CommonMethods extends SeleniumBase {
 
 
 	/**
@@ -26,30 +25,25 @@ public class CommonMethods extends SeleniumBase
 	 * @param webElement the text box web element
 	 * @param strValue   the value to enter
 	 */
-	public void type (WebElement webElement, String strValue)
-	{
+	public void type(WebElement webElement, String strValue) {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		WebElement element = wait.until(
 				ExpectedConditions.visibilityOfElementLocated((By) webElement));
-		try
-		{
-			webElement.sendKeys (strValue);
-		}
-		catch (Exception e)
-		{
-			throw new TestException (String.format ("Error in sending [%s] to the following element: [%s]", strValue, webElement.toString ()));
+		try {
+			webElement.sendKeys(strValue);
+		} catch (Exception e) {
+			throw new TestException(String.format("Error in sending [%s] to the following element: [%s]", strValue, webElement.toString()));
 		}
 	}
 
 	/**
 	 * click method to click on a web element
 	 */
-	public void clickBy (WebElement webElement)
-	{
-//		WebDriverWait wait = new WebDriverWait(driver, 60);
-//		WebElement element = wait.until(
-//				ExpectedConditions.visibilityOfElementLocated((By) webElement));
-		webElement.click ();
+	public void clickBy(WebElement webElement) {
+		//		WebDriverWait wait = new WebDriverWait(driver, 60);
+		//		WebElement element = wait.until(
+		//				ExpectedConditions.visibilityOfElementLocated((By) webElement));
+		webElement.click();
 	}
 
 
@@ -58,17 +52,16 @@ public class CommonMethods extends SeleniumBase
 	 *
 	 * @param webElement
 	 */
-	public void clickJS (WebElement webElement)
-	{
+	public void clickJS(WebElement webElement) {
 		JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-		javascriptExecutor.executeScript ("arguments[0].click();", webElement);
+		javascriptExecutor.executeScript("arguments[0].click();", webElement);
 	}
 	/**
 	 * pause for a certain amount of time before , performing the next operation
 	 *
 	 * @param milliseconds
 	 */
-	public void wait(Integer milliseconds){
+	public void wait(Integer milliseconds) {
 		try {
 			TimeUnit.MILLISECONDS.sleep(milliseconds);
 		} catch (InterruptedException e) {
@@ -80,16 +73,16 @@ public class CommonMethods extends SeleniumBase
 	 * Returns the Date in Desired Format , which we are using
 	 *
 	 */
-	public String getDateInDesiredFormat(String strDate){
-		String strDateInActualFormat ="";
+	public String getDateInDesiredFormat(String strDate) {
+		String strDateInActualFormat = "";
 		String[] spllitedDate = strDate.split("T");
 		String part1 = spllitedDate[0]; // 004
-		String replaceString=part1.replace('-','/');
+		String replaceString = part1.replace('-', '/');
 		String[] parts = replaceString.split("/");
 		String strYear = parts[0];
-		String strMonth = parts [1];
-		String strDay= parts[2];
-		strDateInActualFormat=strDay+"/"+strMonth+"/"+strYear;
+		String strMonth = parts[1];
+		String strDay = parts[2];
+		strDateInActualFormat = strDay + "/" + strMonth + "/" + strYear;
 		return strDateInActualFormat;
 	}
 
@@ -97,13 +90,13 @@ public class CommonMethods extends SeleniumBase
 	 * return the first day of the week in the desired format
 	 *
 	 */
-	public String  getWeekStartDate() {
+	public String getWeekStartDate() {
 		Calendar calendar = Calendar.getInstance();
 		while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
 			calendar.add(Calendar.DATE, -1);
 		}
 		Date dt = calendar.getTime();
-		DateFormat ndf = new SimpleDateFormat ("dd/MM/yyyy");
+		DateFormat ndf = new SimpleDateFormat("dd/MM/yyyy");
 		String strWeekFirstDay = ndf.format(dt);
 		return strWeekFirstDay;
 	}
@@ -128,17 +121,17 @@ public class CommonMethods extends SeleniumBase
 	 * Converts raw string response into JSON
 	 *
 	 */
-	public static JsonPath rawToJSON(String response){
-		JsonPath js = new JsonPath (response);
+	public static JsonPath rawToJSON(String response) {
+		JsonPath js = new JsonPath(response);
 		return js;
 	}
 
 	/**
 	 * Gets ID from a given URL
 	 */
-	public static String getID(String url){
+	public static String getID(String url) {
 		String[] strURLInParts = url.split("/");
-		String strID= strURLInParts[5];
+		String strID = strURLInParts[5];
 		return strID;
 	}
 
