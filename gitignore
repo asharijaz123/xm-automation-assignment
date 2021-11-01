@@ -8,5 +8,4 @@ target/
 .DS_Store
 *.iml
 .idea/
-*.log
 out/
