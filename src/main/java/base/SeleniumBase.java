@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author MUHAMMAD ASHAR
- * Dated: 26/10/2020
+ * Dated: 26/10/2021
  */
 public class SeleniumBase
 {
